@@ -39,7 +39,6 @@ def main():
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 return
-        
         screen.fill("black")
         for obj in drawable:
             obj.draw(screen)
@@ -52,7 +51,7 @@ def main():
             for shot in shots:
                 bullet_collision = obj.collision(shot)
                 if bullet_collision:
-                    obj.kill()
+                    obj.split(asteroids)
                     shot.kill()
 
         pygame.display.flip()
